@@ -1,0 +1,3 @@
+Cola = 0.90
+Lemonade = 0.80
+Fizzy orange = 0.90
