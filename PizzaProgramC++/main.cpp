@@ -4,15 +4,89 @@
 #include "FADClass.h"
 
 
-bool doPizza();
-bool doDrink();
-bool doTopping();
-bool doSize();
+void doPizza(FADClass &foodAndDrink, int &totalOrders, std::map<std::string, double>&allOrders);
+void doDrink(FADClass &foodAndDrink, int &totalOrders, std::map<std::string, double>&allOrders);
+void doTopping(FADClass &foodAndDrink, int &totalOrders, std::map<std::string, double>&allOrders);
+void doSize(FADClass &foodAndDrink, int &totalOrders, std::map<std::string, double>&allOrders);
 
-bool doPizza()
+void doPizza(FADClass &foodAndDrink, int &totalOrders, std::map<std::string, double>&allOrders)
 {
+	int input = -1;
+	system("cls");
+	std::cout << "Please choose a Pizza\n";
+	foodAndDrink.ShowMenu(PIZZA);
+	while (input > foodAndDrink.numElements(PIZZA) || input < 0)
+	{
 
+		std::cin >> input;
+
+		if (input > foodAndDrink.numElements(PIZZA) || input < 0)
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+		else break;
+	}
+
+	std::cout << "You have chosen " << foodAndDrink.getElement(PIZZA, input) << std::endl;
+
+	totalOrders++;
+
+	allOrders[foodAndDrink.getElement(PIZZA, input)] = foodAndDrink.getPrice(PIZZA, input);
 }
+
+void doDrink(FADClass &foodAndDrink, int &totalOrders, std::map<std::string, double>&allOrders)
+{
+	int input = -1;
+	system("cls");
+
+	std::cout << "Please choose from the selection of drinks.\n";
+	foodAndDrink.ShowMenu(DRINK);
+
+
+	while (input > foodAndDrink.numElements(DRINK) || input < 0)
+	{
+		std::cin >> input;
+
+		if (input > foodAndDrink.numElements(DRINK) || input < 0)
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+		else break;
+
+
+	}
+	std::cout << "You have chosen " << foodAndDrink.getElement(DRINK, input) << std::endl;
+
+	allOrders[foodAndDrink.getElement(DRINK, input)] = foodAndDrink.getPrice(DRINK, input);
+}
+
+void doTopping(FADClass &foodAndDrink, int &totalOrders, std::map<std::string, double>&allOrders)
+{
+	int input = -1;
+	system("cls");
+
+	std::cout << "Please choose from the selection of toppings.\n";
+	foodAndDrink.ShowMenu(TOPPING);
+
+
+	while (input > foodAndDrink.numElements(TOPPING) || input < 0)
+	{
+		std::cin >> input;
+		if (input > foodAndDrink.numElements(TOPPING) || input < 0)
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+		else break;
+	}
+
+	std::cout << "You have chosen " << foodAndDrink.getElement(TOPPING, input) << std::endl;
+
+	allOrders[foodAndDrink.getElement(TOPPING, input)] = foodAndDrink.getPrice(TOPPING, input);
+}
+
 int main()
 {
 
@@ -37,90 +111,24 @@ int main()
 
 	while (endans != 'n' || totalOrders >= 10)
 	{
-		system("cls");
-		std::cout << "Please choose a Pizza\n";
-		foodAndDrink.ShowMenu(PIZZA);
-		while (input > foodAndDrink.numElements(PIZZA) || input < 0)
-		{
-
-			std::cin >> input;
-
-			if (input > foodAndDrink.numElements(PIZZA) || input < 0)
-			{
-				std::cin.clear();
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			}
-			else break;
-		}
-
-		std::cout << "You have chosen " << foodAndDrink.getElement(PIZZA, input) << std::endl;
-
-		totalOrders++;
-
-		allOrders[foodAndDrink.getElement(PIZZA, input)] = foodAndDrink.getPrice(PIZZA, input);
+		doPizza(foodAndDrink, totalOrders, allOrders);
 
 		std::cout << "\nWould you like a drink with that?\n";
 
 		std::cin >> ans;
 
-		input = -1;
 
 		if (ans == 'y' || ans == 'Y')
 		{
-			system("cls");
-
-			std::cout << "Please choose from the selection of drinks.\n";
-			foodAndDrink.ShowMenu(DRINK);
-
-
-			while (input > foodAndDrink.numElements(DRINK) || input < 0)
-			{
-				std::cin >> input;
-
-				if (input > foodAndDrink.numElements(DRINK) || input < 0)
-				{
-					std::cin.clear();
-					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				}
-				else break;
-
-
-			}
-			std::cout << "You have chosen " << foodAndDrink.getElement(DRINK, input) << std::endl;
-
-			allOrders[foodAndDrink.getElement(DRINK, input)] = foodAndDrink.getPrice(DRINK, input);
-
+			doDrink(foodAndDrink, totalOrders, allOrders);
 
 			std::cout << "\nWould you like any toppings? (y/n)\n";
 
 			std::cin >> ans;
 
-			input = -1;
-
 			if (ans == 'y' || ans == 'Y')
 			{
-				system("cls");
-
-				std::cout << "Please choose from the selection of toppings.\n";
-				foodAndDrink.ShowMenu(TOPPING);
-
-
-				while (input > foodAndDrink.numElements(TOPPING) || input < 0)
-				{	
-					std::cin >> input;
-					if (input > foodAndDrink.numElements(TOPPING) || input < 0)
-					{
-						std::cin.clear();
-						std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-					}
-					else break;
-				}
-
-				std::cout << "You have chosen " << foodAndDrink.getElement(TOPPING, input) << std::endl;
-
-				allOrders[foodAndDrink.getElement(TOPPING, input)] = foodAndDrink.getPrice(TOPPING, input);
-
-				input = -1;
+				doTopping(foodAndDrink, totalOrders, allOrders);
 
 				_sleep(3000);
 
