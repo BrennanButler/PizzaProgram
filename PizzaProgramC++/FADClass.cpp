@@ -8,6 +8,7 @@ FADClass::FADClass()
 
 FADClass::~FADClass()
 {
+	// If these classes have been used (and therefor memory allocated) deallocate the memory
 	if (cDrink)
 	{
 		delete cDrink;
@@ -30,6 +31,7 @@ FADClass::~FADClass()
 
 bool FADClass::Initialize()
 {
+	// Initialize all the classes we'll be using
 	cDrink = new DrinkClass();
 
 	if (!cDrink)
@@ -58,6 +60,7 @@ bool FADClass::Initialize()
 
 void FADClass::ShowMenu(Itype type)
 {
+	// Show the menu based on type given
 	switch (type)
 	{
 		case DRINK:
@@ -72,6 +75,7 @@ void FADClass::ShowMenu(Itype type)
 
 double FADClass::getPrice(Itype type, int ID)
 {
+	// Return price based on type given and respected ID
 	switch (type)
 	{
 		case DRINK:
@@ -86,6 +90,7 @@ double FADClass::getPrice(Itype type, int ID)
 
 int FADClass::numElements(Itype type)
 {
+	// Return the total number of elements based on the given type
 	switch (type)
 	{
 		case DRINK:
@@ -100,6 +105,7 @@ int FADClass::numElements(Itype type)
 
 std::string FADClass::getElement(Itype type, int ID)
 {
+	// Get the name of the element based on its type and ID
 	switch (type)
 	{
 		case DRINK:
@@ -108,7 +114,6 @@ std::string FADClass::getElement(Itype type, int ID)
 			return cPizza->getPizzaInfo(ID);
 		case TOPPING:
 			return cTopping->getToppingInfo(ID);
-		default: return "error";
 	}
 	return "error";
 }

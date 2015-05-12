@@ -12,9 +12,11 @@ FileClass::~FileClass()
 
 bool FileClass::LoadFile(char *fileName, std::map<std::string, double> &returnedValue, int &num)
 {
+	// Open the file
 	std::ifstream loadedFile(fileName);
 	std::string string;
 	
+	// The file failed to open
 	if (!loadedFile.is_open())
 		return false;
 
@@ -27,11 +29,14 @@ bool FileClass::LoadFile(char *fileName, std::map<std::string, double> &returned
 		if (string[0] == '#')
 			continue;
 		 
+		// Find the position of the assignment operator
 		std::size_t sPos = string.find("=");
 
+		// No assignment operators were found, continue the loop
 		if (sPos == std::string::npos)
 			continue;
 
+		// Ignore whitespace
 		if(string[sPos-1] == ' ')
 			sPos-=1;
 		
@@ -40,7 +45,7 @@ bool FileClass::LoadFile(char *fileName, std::map<std::string, double> &returned
 		
 		tempString = string.substr(0, sPos);
 
-		
+		// Load the values and keys into the map container
 		if (string[sPos] == '=')
 			returnedValue[tempString] = ::atof(string.substr(sPos + 1, (sPos + 1) - string.length()).c_str());
 		else
@@ -49,6 +54,8 @@ bool FileClass::LoadFile(char *fileName, std::map<std::string, double> &returned
 		num++;
 	}
 
+
+	// Close the file
 	loadedFile.close();
 	return true;
 }

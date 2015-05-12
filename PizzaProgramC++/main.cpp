@@ -107,10 +107,23 @@ int main()
 
 	// Initialize everything. Food, Drink, topping.
 	foodAndDrink.Initialize();
-	std::cout << foodAndDrink.numElements(PIZZA);
 
 	while (endans != 'n' || totalOrders >= 10)
 	{
+		system("cls");
+		std::cout << "1 - Continue with order\n2 - Help\n";
+
+		std::cin >> input;
+
+		if (input == 2)
+		{
+			system("cls");
+			std::cout << "-- Help --\n\nTo select an item from the list input the number to the left of the item and press enter.\nWhen prompted if you'd like an extra thing (topping, drink etc) and you would not like it simply enter 'n' and press enter.";
+			_sleep(15000);
+		}
+		input = -1;
+
+
 		doPizza(foodAndDrink, totalOrders, allOrders);
 
 		std::cout << "\nWould you like a drink with that?\n";
@@ -168,9 +181,11 @@ int main()
 
 				std::cin >> endans;
 
-				if (endans == 'n' || 'N')
+				if (endans == 'n' || endans == 'N')
+				{
 					break;
-				else continue;
+				}
+				else endans = 0;
 			}
 		} 
 	}
