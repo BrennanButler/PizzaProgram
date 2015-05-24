@@ -25,7 +25,8 @@ bool PizzaClass::Initialize()
 	FileClass file;
 	// Load the drinks file, parse the contents into the m_Drinks map container 
 	// and add up the total parsed elements and assign it to num
-	file.LoadFile("Pizza.txt", m_Pizzas, num);
+	if (!file.LoadFile("Pizza.txt", m_Pizzas, num))
+		return false;
 
 	// Now we know the total amount of elements we can assign the right amount of memory cells to the elementValue variable
 	elementValue = new double[num];

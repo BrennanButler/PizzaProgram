@@ -106,100 +106,113 @@ int main()
 	FADClass foodAndDrink;
 
 	// Initialize everything. Food, Drink, topping.
-	foodAndDrink.Initialize();
-
-	while (endans != 'n' || totalOrders >= 10)
+	if (foodAndDrink.Initialize())
 	{
-		system("cls");
-		std::cout << "1 - Continue with order\n2 - Help\n";
-
-		std::cin >> input;
-
-		if (input == 2)
+		while (endans != 'n' || totalOrders >= 10)
 		{
 			system("cls");
-			std::cout << "-- Help --\n\nTo select an item from the list input the number to the left of the item and press enter.\nWhen prompted if you'd like an extra thing (topping, drink etc) and you would not like it simply enter 'n' and press enter.";
-			_sleep(15000);
-		}
-		input = -1;
+			std::cout << "1 - Continue with order\n2 - Help\n3 - Finish\n";
+
+			std::cin >> input;
+
+			if (input == 2)
+			{
+				system("cls");
+				std::cout << "-- Help --\n\nTo select an item from the list input the number to the left of the item and press enter.\nWhen prompted if you'd like an extra thing (topping, drink etc) and you would not like it simply enter 'n' and press enter.";
+				_sleep(15000);
+			}
+			else if (input == 3)
+			{
+				endans = 'n';
+				continue;
+			}
+			else if (input != 1)
+			{
+				continue;
+
+			}
+			input = -1;
 
 
-		doPizza(foodAndDrink, totalOrders, allOrders);
+			doPizza(foodAndDrink, totalOrders, allOrders);
 
-		std::cout << "\nWould you like a drink with that?\n";
-
-		std::cin >> ans;
-
-
-		if (ans == 'y' || ans == 'Y')
-		{
-			doDrink(foodAndDrink, totalOrders, allOrders);
-
-			std::cout << "\nWould you like any toppings? (y/n)\n";
+			std::cout << "\nWould you like a drink with that?\n";
 
 			std::cin >> ans;
 
+
 			if (ans == 'y' || ans == 'Y')
 			{
-				doTopping(foodAndDrink, totalOrders, allOrders);
+				doDrink(foodAndDrink, totalOrders, allOrders);
 
-				_sleep(3000);
+				std::cout << "\nWould you like any toppings? (y/n)\n";
 
-				system("cls");
+				std::cin >> ans;
 
-				std::cout << "Would you like a thin or thick pizza base?\n";
-				std::cout << "0 Thin base\n1 Thick base\n";
-
-				while (input < 0 || input > 1)
+				if (ans == 'y' || ans == 'Y')
 				{
+					doTopping(foodAndDrink, totalOrders, allOrders);
 
-					std::cin >> input;
-					if (input > 1 || input < 0)
+					_sleep(3000);
+
+					system("cls");
+
+					std::cout << "Would you like a thin or thick pizza base?\n";
+					std::cout << "0 Thin base\n1 Thick base\n";
+
+					while (input < 0 || input > 1)
 					{
-						std::cin.clear();
-						std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+						std::cin >> input;
+						if (input > 1 || input < 0)
+						{
+							std::cin.clear();
+							std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						}
+						else break;
 					}
-					else break;
+
+					if (!input)
+					{
+						std::cout << "You have chosen a Thin base\n";
+					}
+					else if (input)
+					{
+						std::cout << "You have chosen a Thick base\n";
+					}
+
+					input = -1;
+
+					system("cls");
+
+					std::cout << "Would you like to place any more orders?\n";
+
+					endans = -1;
+
+					std::cin >> endans;
+
+					if (endans == 'n' || endans == 'N')
+					{
+						break;
+					}
+					else endans = 0;
 				}
-
-				if (!input)
-				{
-					std::cout << "You have chosen a Thin base\n";
-				}
-				else if (input)
-				{
-					std::cout << "You have chosen a Thick base\n";
-				}
-
-				input = -1;
-
-				system("cls");
-
-				std::cout << "Would you like to place any more orders?\n";
-
-				endans = -1;
-
-				std::cin >> endans;
-
-				if (endans == 'n' || endans == 'N')
-				{
-					break;
-				}
-				else endans = 0;
 			}
-		} 
+		}
+
+
+		if (!allOrders.empty())
+		{
+			std::cout << "You have ordered :\n";
+			for (std::map <std::string, double>::iterator i = allOrders.begin(); i != allOrders.end(); ++i)
+			{
+				std::cout << i->first << std::endl;
+				totalCost += i->second;
+			}
+
+			std::cout << "Costing a total " << totalCost << " pounds";
+		}
 	}
-
-	std::cout << "You have ordered :\n";
-
-	for (std::map <std::string, double>::iterator i = allOrders.begin(); i != allOrders.end(); ++i)
-	{
-		std::cout << i->first << std::endl;
-		totalCost += i->second;
-	}
-
-	std::cout << "Costing a total " << totalCost << " pounds";
-
 	std::cin.get();
 	std::cin.get();
 	return 0;

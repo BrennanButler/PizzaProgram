@@ -1,1 +1,1 @@
-Thin and crispy = 0.4
+Cheese = 0.4

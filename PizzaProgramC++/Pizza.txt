@@ -1,4 +1,4 @@
-# KUNT
+# An example comment
 Cheese and tomato = 3.50
 Ham and pineapple = 4.20
 Vegetarian = 5.20

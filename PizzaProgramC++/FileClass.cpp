@@ -32,7 +32,7 @@ bool FileClass::LoadFile(char *fileName, std::map<std::string, double> &returned
 		// Find the position of the assignment operator
 		std::size_t sPos = string.find("=");
 
-		// No assignment operators were found, continue the loop
+		// No assignment operators were found, possibly wrong formatting?
 		if (sPos == std::string::npos)
 			continue;
 
@@ -54,6 +54,12 @@ bool FileClass::LoadFile(char *fileName, std::map<std::string, double> &returned
 		num++;
 	}
 
+	if (returnedValue.empty())
+	{
+		// There was content in the file but the program failed to load any.
+		std::cout << "ERROR: The program failed to load any values from the files. Did you use the right formatting/have you created the files and their items?\n";
+		return false;
+	}
 
 	// Close the file
 	loadedFile.close();

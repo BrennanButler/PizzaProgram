@@ -26,7 +26,8 @@ bool ToppingClass::Initialize()
 
 	// Load the drinks file, parse the contents into the m_Drinks map container 
 	// and add up the total parsed elements and assign it to num
-	file.LoadFile("Toppings.txt", m_Toppings, num);
+	if (!file.LoadFile("Toppings.txt", m_Toppings, num))
+		return false;
 
 
 	// Now we know the total amount of elements we can assign the right amount of memory cells to the elementValue variable
