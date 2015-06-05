@@ -1,9 +1,30 @@
-﻿Build started 23/05/2015 23:18:41.
-     1>Project "C:\Users\Brennan\Documents\Visual Studio 2013\Projects\PizzaProgramC++\PizzaProgramC++\PizzaProgramC++.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         PizzaProgramC++.vcxproj -> C:\Users\Brennan\Documents\Visual Studio 2013\Projects\PizzaProgramC++\Debug\PizzaProgramC++.exe
-     1>Done Building Project "C:\Users\Brennan\Documents\Visual Studio 2013\Projects\PizzaProgramC++\PizzaProgramC++\PizzaProgramC++.vcxproj" (Build target(s)).
+﻿Build started 05/06/2015 19:34:04.
+     1>Project "C:\Users\Brennan\Documents\Visual Studio 2013\Projects\PizzaProgramC++\PizzaProgramC++\PizzaProgramC++.vcxproj" on node 2 (Rebuild target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : Access to the path 'c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\debug\pizzaprogramc++.exe' is denied.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /wd4996 /analyze- /errorReport:prompt DrinkClass.cpp FADClass.cpp FileClass.cpp main.cpp PizzaClass.cpp TableClass.cpp ToppingClass.cpp
+         ToppingClass.cpp
+         TableClass.cpp
+         PizzaClass.cpp
+         main.cpp
+     1>c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\pizzaprogramc++\main.cpp(26): warning C4003: not enough actual parameters for macro 'max'
+     1>c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\pizzaprogramc++\main.cpp(26): error C2589: '(': illegal token on right side of '::'
+     1>c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\pizzaprogramc++\main.cpp(26): error C2059: syntax error: '::'
+     1>c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\pizzaprogramc++\main.cpp(54): warning C4003: not enough actual parameters for macro 'max'
+     1>c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\pizzaprogramc++\main.cpp(54): error C2589: '(': illegal token on right side of '::'
+     1>c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\pizzaprogramc++\main.cpp(54): error C2059: syntax error: '::'
+     1>c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\pizzaprogramc++\main.cpp(80): warning C4003: not enough actual parameters for macro 'max'
+     1>c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\pizzaprogramc++\main.cpp(80): error C2589: '(': illegal token on right side of '::'
+     1>c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\pizzaprogramc++\main.cpp(80): error C2059: syntax error: '::'
+     1>c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\pizzaprogramc++\main.cpp(170): warning C4003: not enough actual parameters for macro 'max'
+     1>c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\pizzaprogramc++\main.cpp(170): error C2589: '(': illegal token on right side of '::'
+     1>c:\users\brennan\documents\visual studio 2013\projects\pizzaprogramc++\pizzaprogramc++\main.cpp(170): error C2059: syntax error: '::'
+         FileClass.cpp
+         FADClass.cpp
+         DrinkClass.cpp
+         Generating Code...
+     1>Done Building Project "C:\Users\Brennan\Documents\Visual Studio 2013\Projects\PizzaProgramC++\PizzaProgramC++\PizzaProgramC++.vcxproj" (Rebuild target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.13
+Time Elapsed 00:00:06.01

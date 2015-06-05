@@ -13,7 +13,7 @@ FileClass::~FileClass()
 bool FileClass::LoadFile(char *fileName, std::map<std::string, double> &returnedValue, int &num)
 {
 	// Open the file
-	std::ifstream loadedFile(fileName);
+	std::ifstream loadedFile(fileName, std::ifstream::in);
 	std::string string;
 	
 	// The file failed to open

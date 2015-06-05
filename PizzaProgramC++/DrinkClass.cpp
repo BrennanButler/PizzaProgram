@@ -11,7 +11,7 @@ DrinkClass::~DrinkClass()
 	if (elementValue)
 	{
 		delete elementValue;
-		elementValue = nullptr;
+		elementValue = NULL;
 	}
 }
 
@@ -21,8 +21,8 @@ bool DrinkClass::Initialize()
 
 	// New file class
 	FileClass file;
-	
-	// Load the drinks file, parse the contents into the m_Drinks map container 
+
+	// Load the drinks file, parse the contents into the m_Drinks map container
 	// and add up the total parsed elements and assign it to num
 	if (!file.LoadFile("Drinks.txt", m_Drinks, num))
 		return false;
@@ -40,7 +40,7 @@ bool DrinkClass::Initialize()
 	for (std::map<std::string, double>::iterator i = m_Drinks.begin(); i != m_Drinks.end(); ++i)
 	{
 		// The map is structured as follows:
-		// std::string -> first 
+		// std::string -> first
 		// double	   -> second
 		elementValue[num] = i->second;
 		drinkInfo[num] = i->first;

@@ -1,13 +1,9 @@
 #include <stdlib.h>
-
 #include "TableClass.h"
 #include "FADClass.h"
 
 
-void doPizza(FADClass &foodAndDrink, int &totalOrders, std::map<std::string, double>&allOrders);
-void doDrink(FADClass &foodAndDrink, int &totalOrders, std::map<std::string, double>&allOrders);
-void doTopping(FADClass &foodAndDrink, int &totalOrders, std::map<std::string, double>&allOrders);
-void doSize(FADClass &foodAndDrink, int &totalOrders, std::map<std::string, double>&allOrders);
+
 
 void doPizza(FADClass &foodAndDrink, int &totalOrders, std::map<std::string, double>&allOrders)
 {
@@ -128,6 +124,8 @@ int main()
 			}
 			else if (input != 1)
 			{
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				continue;
 
 			}
@@ -212,7 +210,7 @@ int main()
 
 			std::cout << "Costing a total " << totalCost << " pounds";
 		}
-	}
+	} else std::cout << "ERROR occured";
 	std::cin.get();
 	std::cin.get();
 	return 0;

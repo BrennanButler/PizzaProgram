@@ -12,19 +12,19 @@ FADClass::~FADClass()
 	if (cDrink)
 	{
 		delete cDrink;
-		cDrink = nullptr;
+		cDrink = NULL;
 	}
 
 	if (cPizza)
 	{
 		delete cPizza;
-		cPizza = nullptr;
+		cPizza = NULL;
 	}
 
 	if (cTopping)
 	{
 		delete cTopping;
-		cTopping = nullptr;
+		cTopping = NULL;
 	}
 }
 
@@ -55,6 +55,7 @@ bool FADClass::Initialize()
 
 	if (!cTopping->Initialize())
 		return false;
+
 	return true;
 }
 
