@@ -12,7 +12,7 @@ ToppingClass::~ToppingClass()
 	// If elementValue has been used, free its memory
 	if (elementValue)
 	{
-		delete elementValue;
+		delete[] elementValue;
 		elementValue = NULL;
 	}
 }
